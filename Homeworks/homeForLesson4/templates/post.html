@@ -1,0 +1,20 @@
+{% extends base.html %}
+
+{% block title %}Persons{% endblock %}
+
+{% block content %}
+<form method="post">
+    <input type="text" name="name" placeholder="Имя">
+    <br>
+    <br>
+    <input type="number" name="year" placeholder="Возраст">
+    <br>
+    <br>
+    <label> Мужчина?
+        <input type="checkbox" name="male" >
+    </label>
+    <br>
+    <br>
+    <input type="submit">
+</form>
+{% endblock %}
