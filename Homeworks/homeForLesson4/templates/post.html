@@ -30,6 +30,7 @@
         }
         else {$("#badName").css("display", "none");}
         if ($("input#ageInput").val() == "") {
+            $("#badAge").text("Вы не ввели возраст")
             $("#badAge").css("display", "block");
             e.preventDefault();
         }
