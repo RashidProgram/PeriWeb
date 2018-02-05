@@ -1,20 +1,43 @@
-{% extends base.html %}
-
-{% block title %}Persons{% endblock %}
-
+{% extends "base.html" %}
+{% block title %}Post{% endblock %}
 {% block content %}
 <form method="post">
-    <input type="text" name="name" placeholder="Имя">
+    <div id="badName" style="color:red;display:none;font-weight:bold;">Вы не ввели имя</div>
+    <input type="text" id="nameInput" name="name" placeholder="Имя(макс 30 символов)">
     <br>
     <br>
-    <input type="number" name="year" placeholder="Возраст">
+    <input type="number" id="ageInput" name="year" placeholder="Возраст">
+    <div id="badAge" style="color:red;display:none;font-weight:bold;">Вы не ввели возраст</div>
     <br>
     <br>
     <label> Мужчина?
-        <input type="checkbox" name="male" >
+        <input type="checkbox" name="male" value=True id="ofMale">
     </label>
     <br>
     <br>
-    <input type="submit">
+    <button type="submit" id="submitButton">Отправить</button>
 </form>
+<div id="goToPerson" style="display: none;">
+<h2>Автоирзация прошла успешно</h2>
+    <h4>для просмотра всех пользователей<br />перейдите по <a href="/person/">ссылке</a></h4>
+</div>
+<script type="text/javascript">
+    sub = $("#submitButton")
+    sub.click(function(e) {
+        if ($("input#nameInput:text").val() == "") {
+            $("#badName").css("display", "block");
+            e.preventDefault();
+        }
+        else {$("#badName").css("display", "none");}
+        if ($("input#ageInput").val() == "") {
+            $("#badAge").css("display", "block");
+            e.preventDefault();
+        }
+        else $("#badAge").css("display", "none");
+        if ($("input#nameInput:text").val() != "" && $("input#ageInput").val() != ""){
+            window.location.href = "127.0.0.1:5000/persons/"
+        }
+        })
+
+</script>
 {% endblock %}

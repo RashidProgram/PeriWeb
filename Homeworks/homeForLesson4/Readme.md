@@ -84,7 +84,7 @@ _default_name_  это значение которое вернется, есл�
     
     if request.method == 'POST':
         name = request.form.get('name', 'default_name')
-        year = request.form.get('year', 1990)
+        year = request.form .get('year', 1990)
         male = request.form.get('male', False)
         Person.create(name=name, year=year, male=male)
         
