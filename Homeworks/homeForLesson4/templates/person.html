@@ -7,10 +7,10 @@
     {% for person in persons %}
         <h2>{{ person.name }}</h2>
         <h4>{{ person.year }}</h4>
-        {% if person.name %}
+        {% if person.male %}
             <h4>Мужчина</h4>
         {% else %}
-            <h4>Мужчина</h4>
+            <h4>Женщина</h4>
         {% endif %}
         <hr />
     {% endfor %}

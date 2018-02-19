@@ -14,13 +14,13 @@ def before_request():
 
 @app.route("/")
 def home():
-    return render_template('index.html', persons=persons)
+        return render_template('index.html')
 
 
 @app.route("/persons/")
-def persons():
+def person():
     persons = Person.select()
-    return render_template('person.html', persons=persons)
+    return render_template("person.html", persons=persons)
 
 
 @app.route('/post/', methods=['GET', 'POST'])
@@ -29,7 +29,6 @@ def post():
         name = request.form.get('name', 'Гость')
         year = request.form.get('year', 2000)
         male = request.form.get('male', False)
-        print(male)
         Person.create(name=name, year=year, male=male)
     return render_template('post.html')
 
