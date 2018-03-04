@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Новости
+{% endblock %}
+
+{#    <script>#}
+{#        var i = 0;#}
+{#        function showDetailsNews(id){#}
+{#            if(i == 0){#}
+{#                document.querySelector("#{{ id }}>").style.display = "block";#}
+{#                document.querySelector("#{{ id }}").innerHTML = "скрыть";#}
+{#                i++#}
+{#            }#}
+{#            else if(i == 1){#}
+{#                elem.innerHTML = "подробнее";#}
+{#                elem.style.display = "none";#}
+{#                i--#}
+{#            }#}
+{#        }#}
+{#    </script>#}
+{% block content %}
+
+    {% for article in news %}
+        <div>
+            <h2>{{ article.name }}</h2>
+            <h4>{{ article.news_list }}</h4>
+        </div>
+    {% endfor %}
+
+{% endblock %}
