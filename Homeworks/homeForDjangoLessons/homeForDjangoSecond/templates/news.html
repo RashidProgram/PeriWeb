@@ -4,28 +4,22 @@
     Новости
 {% endblock %}
 
-{#    <script>#}
-{#        var i = 0;#}
-{#        function showDetailsNews(id){#}
-{#            if(i == 0){#}
-{#                document.querySelector("#{{ id }}>").style.display = "block";#}
-{#                document.querySelector("#{{ id }}").innerHTML = "скрыть";#}
-{#                i++#}
-{#            }#}
-{#            else if(i == 1){#}
-{#                elem.innerHTML = "подробнее";#}
-{#                elem.style.display = "none";#}
-{#                i--#}
-{#            }#}
-{#        }#}
-{#    </script>#}
 {% block content %}
+    {% if news_detal is None %}
+        {% for article in news %}
+            <div style="margin-bottom:50px;border-bottom:1px solid #000000">
+                <h2>{{ article.name }}</h2>
+                <h4>{{ article.news_info }}</h4>
+                <a href='/news/{{article.id}}'>подробнее</a>
+            </div>
+        {% endfor %}
+    {% else %}
+            <div>
+                <h2>{{ news_detal.name }}</h2>
+                <h4>{{ news_detal.news_details }}</h4>
+                <a href='/news/'>назад к новостям</a>
+            </div>
+    {% endif %}
 
-    {% for article in news %}
-        <div>
-            <h2>{{ article.name }}</h2>
-            <h4>{{ article.news_list }}</h4>
-        </div>
-    {% endfor %}
 
 {% endblock %}

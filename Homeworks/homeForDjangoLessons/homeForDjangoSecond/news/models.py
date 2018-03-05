@@ -3,9 +3,9 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Article(models.Model):
-    name = models.CharField(max_length=30)
-    news_list = models.CharField(max_length=100)
-    news_details = RichTextUploadingField()
+    name = models.CharField("Название", max_length=70)
+    news_info = models.CharField("Описание", max_length=300)
+    news_details = RichTextUploadingField("подробности")
 
     def __str__(self):
         return self.name

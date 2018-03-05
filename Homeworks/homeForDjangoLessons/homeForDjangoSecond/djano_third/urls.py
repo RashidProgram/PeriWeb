@@ -12,7 +12,7 @@ urlpatterns = [
     path('', home, name='home'),
     path('<slug:slug>', pages, name='pages'),
     path('news/', news_list, name='news_list'),
-    # path('news/<slug:slug>', news_detail, name='news_detail'),
+    path('news/<int:article_id>', news_list, name='news_detail'),
 ]
 
 
