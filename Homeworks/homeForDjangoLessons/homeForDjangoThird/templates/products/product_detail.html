@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ product.title }}
+{% endblock %}
+
+
+{% block content %}
+    <h2>{{ product.title }}</h2>
+    <h4>{{ product.company }}</h4>
+    <h4>{{ product.cost }}</h4>
+    <h4>{{ product.date }}</h4>
+    <h4>{{ product.catalog.title }}</h4>
+    <h4>{{ product.weight }}</h4>
+    <h4><a href="../../{{ product.catalog.title }}">к товарам</a></h4>
+    <h4><a href="../../">к каталогам</a></h4>
+{% endblock %}
