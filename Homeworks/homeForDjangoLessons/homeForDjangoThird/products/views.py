@@ -1,4 +1,4 @@
-from .models import Product, Catalog
+from .models import Products, Catalog
 from django.shortcuts import render
 
 
@@ -8,10 +8,10 @@ def catalogs(request):
 
 
 def list_products(request, catalog_title):
-    products_list = Product.objects.all()
+    products_list = Products.objects.all()
     return render(request, 'products/product_list.html', {"products": products_list, "title": catalog_title})
 
 
 def detail_product(request, this_id):
-    product_detail = Product.objects.get(id=this_id)
+    product_detail = Products.objects.get(id=this_id)
     return render(request, 'products/product_detail.html', {"product": product_detail, "title": this_id})

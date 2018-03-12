@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Person
+from .models import Page
 
 
 class PersonAdmin(admin.ModelAdmin):
@@ -9,4 +9,4 @@ class PersonAdmin(admin.ModelAdmin):
     search_fields = ("name", "surname")
 
 
-admin.site.register(Person, PersonAdmin)
+admin.site.register(Page, PersonAdmin)

@@ -8,18 +8,20 @@
     {% if news_detal is None %}
         {% for article in news %}
             <div style="margin-bottom:50px;border-bottom:1px solid #000000">
-                <h2>{{ article.name }}</h2>
-                <h4>{{ article.news_info }}</h4>
+                <h2>{{ article.name|safe }}</h2>
+                <h4>{{ article.news_info|safe }}</h4>
                 <a href='/news/{{article.id}}'>подробнее</a>
             </div>
         {% endfor %}
     {% else %}
             <div>
-                <h2>{{ news_detal.name }}</h2>
-                <h4>{{ news_detal.news_details }}</h4>
+                <h2>{{ news_detal.name|safe }}</h2>
+                <h4>{{ news_detal.news_details|safe }}</h4>
                 <a href='/news/'>назад к новостям</a>
             </div>
     {% endif %}
 
 
 {% endblock %}
+
+
