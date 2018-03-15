@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ДЗ 6</title>
+</head>
+<body>
+<style>div{border-bottom: 2px solid #000000}</style>
+{##}
+{#Добавьте другие выводы элементов сверху#}
+{##}
+{# Задание 1 #}<div>
+    <h1>1.Кол-во продуктов</h1>
+    <h3>Всего {{ count }} продуктов</h3>
+</div>
+{# Задание 2 #}<div>
+    <h1>2.Ягоды</h1>
+        {% for product in yagodi %}
+            <h3>{{ product.title }}</h3>
+            <h6>{{ product.catalog.title }}</h6>
+            <strong>{{ product.count }}</strong>
+            <small>{{ product.shelf_life }}</small>
+            {%  if product.is_import %}
+                <p>Импортный продукт</p>
+            {% else %}
+                <p>Местный продукт</p>
+            {%  endif %}
+        {% endfor %}
+</div>
+{# Задание 3 #}<div>
+    <h1>3.Фрукты и Овощи</h1>
+        {% for product in fructi_ovoshi %}
+            <h3>{{ product.title }}</h3>
+            <h6>{{ product.catalog.title }}</h6>
+            <strong>{{ product.count }}</strong>
+            <small>{{ product.shelf_life }}</small>
+            {%  if product.is_import %}
+                <p>Импортный продукт</p>
+            {% else %}
+                <p>Местный продукт</p>
+            {%  endif %}
+        {% endfor %}
+</div>
+{# Задание 4 #}<div>
+    <h1>4.Кол-во > 10</h1>
+        {% for product in big_10 %}
+            <h3>{{ product.title }}</h3>
+            <h6>{{ product.catalog.title }}</h6>
+            <strong>{{ product.count }}</strong>
+            <small>{{ product.shelf_life }}</small>
+            {%  if product.is_import %}
+                <p>Импортный продукт</p>
+            {% else %}
+                <p>Местный продукт</p>
+            {%  endif %}
+        {% endfor %}
+</div>
+{# Задание 5 #}<div>
+    <h1>5.Кол-во < 10</h1>
+        {% for product in small_10 %}
+            <h3>{{ product.title }}</h3>
+            <h6>{{ product.catalog.title }}</h6>
+            <strong>{{ product.count }}</strong>
+            <small>{{ product.shelf_life }}</small>
+            {%  if product.is_import %}
+                <p>Импортный продукт</p>
+            {% else %}
+                <p>Местный продукт</p>
+            {%  endif %}
+        {% endfor %}
+</div>
+{# Задание 6 #}<div>
+    <h1>6.Импортные</h1>
+        {% for product in import %}
+            <h3>{{ product.title }}</h3>
+            <h6>{{ product.catalog.title }}</h6>
+            <strong>{{ product.count }}</strong>
+            <small>{{ product.shelf_life }}</small>
+            {%  if product.is_import %}
+                <p>Импортный продукт</p>
+            {% else %}
+                <p>Местный продукт</p>
+            {%  endif %}
+        {% endfor %}
+</div>
+{# Задание 7 #}<div>
+    <h1>7.Местные ягоды</h1>
+        {% for product in local %}
+            <h3>{{ product.title }}</h3>
+            <h6>{{ product.catalog.title }}</h6>
+            <strong>{{ product.count }}</strong>
+            <small>{{ product.shelf_life }}</small>
+            {%  if product.is_import %}
+                <p>Импортный продукт</p>
+            {% else %}
+                <p>Местный продукт</p>
+            {%  endif %}
+        {% endfor %}
+</div>
+{# Задание 8 #}<div>
+    <h1>8.Просроченные продукты</h1>
+        {% for product in prosroch %}
+            <h3>{{ product.title }}</h3>
+            <h6>{{ product.catalog.title }}</h6>
+            <strong>{{ product.count }}</strong>
+            <small>{{ product.shelf_life }}</small>
+            {%  if product.is_import %}
+                <p>Импортный продукт</p>
+            {% else %}
+                <p>Местный продукт</p>
+            {%  endif %}
+        {% endfor %}
+</div>
+{# Задание 9 #}<div>
+    <h1>9.Яблоки</h1>
+        {% for product in apple %}
+            <h3>{{ product.title }}</h3>
+            <h6>{{ product.catalog.title }}</h6>
+            <strong>{{ product.count }}</strong>
+            <small>{{ product.shelf_life }}</small>
+            {%  if product.is_import %}
+                <p>Импортный продукт</p>
+            {% else %}
+                <p>Местный продукт</p>
+            {%  endif %}
+        {% endfor %}
+</div>
+{# Задание 10 #}<div>
+    <h1>10.Не яблоки</h1>
+        {% for product in notApple %}
+            <h3>{{ product.title }}</h3>
+            <h6>{{ product.catalog.title }}</h6>
+            <strong>{{ product.count }}</strong>
+            <small>{{ product.shelf_life }}</small>
+            {%  if product.is_import %}
+                <p>Импортный продукт</p>
+            {% else %}
+                <p>Местный продукт</p>
+            {%  endif %}
+        {% endfor %}
+</div>
+{# Задание 11 #}<div>
+    <h1>11.Фрукты-сортировка</h1>
+        {% for product in sort_fructs %}
+            <h3>{{ product.title }}</h3>
+            <h6>{{ product.catalog.title }}</h6>
+            <strong>{{ product.count }}</strong>
+            <small>{{ product.shelf_life }}</small>
+            {%  if product.is_import %}
+                <p>Импортный продукт</p>
+            {% else %}
+                <p>Местный продукт</p>
+            {%  endif %}
+        {% endfor %}
+</div>
+<div>
+    <h1>12. Все продукты</h1>
+    {% for product in all_products %}
+        <h3>{{ product.title }}</h3>
+        <h6>{{ product.catalog.title }}</h6>
+        <strong>{{ product.count }}</strong>
+        <small>{{ product.shelf_life }}</small>
+        {%  if product.is_import %}
+            <p>Импортный продукт</p>
+        {% else %}
+            <p>Местный продукт</p>
+        {%  endif %}
+    {% endfor %}
+    </div>
+
+</body>
+</html>
