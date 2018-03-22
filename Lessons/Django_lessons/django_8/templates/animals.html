@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animals</title>
+</head>
+<body>
+    {% for animal in animal_list %}
+        <h3>{{ animal.name }}</h3>
+        <h4>{{ animal.kind }}</h4>
+        <h3>{{ animal.get_kind_display }}</h3>
+        <img src="{{ animal.get_img_url }}" alt="Животное" width="50" height="50">
+    {% endfor %}
+    {% for contact in page_obj %}
+    {# Each "contact" is a Contact model object. #}
+    {{ contact.full_name|upper }}<br />
+    ...
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; Первая</a>
+            <a href="?page={{ page_obj.previous_page_number }}">следующая</a>
+        {% endif %}
+
+        <span class="current">
+            страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">следующая</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">прошлая &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+</body>
+</html>
