@@ -16,8 +16,8 @@
         <img src="{{ article.get_img_url }}" alt="фото новости">
         <h3>{{ article.name }}</h3>
         <div>{{ article.content|safe }}</div>
-        <div>{{ article.data }}</div>
-        <div>{{ article.get_tags_display }}</div>
+        <div>{{ article.date }}</div><br>
+        <div>Теги: {{ article.get_tags_display }}</div>
         <div><a href="{% url 'list' %}">назад</a></div>
         </div>
     </div>
