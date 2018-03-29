@@ -2,11 +2,11 @@ from django.db import models
 
 
 class Cities(models.Model):
-    country_code = models.ForeignKey('CountryCode', on_delete=models.CASCADE)
+    country = models.ForeignKey('CountryCode', on_delete=models.CASCADE)
     city = models.CharField("Название города", max_length=50)
     accent_city = models.CharField("Название города в этом городе", max_length=50)
-    region = models.PositiveIntegerField("Регион", blank=True)
-    population = models.BigIntegerField("Популяция", blank=False)
+    region = models.CharField("Регион", max_length=999, blank=True)
+    population = models.BigIntegerField("Популяция", blank=True)
     latitude = models.FloatField("Долгота")
     longitude = models.FloatField("Широта")
 
