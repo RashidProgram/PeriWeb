@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="btn-group" role="group" aria-label="Menu">
+        <a href='{% url "home" %}' class="btn btn-secondary">Главная</a>
+        <a href='{% url "list" %}' class="btn btn-secondary">Список новостей</a>
+    </div>
+    <div class="container">
+        <div class="row">
+    {% for article in news %}
+        <div class="col">
+        <img width='200' height="150" src="{{ article.get_img_url }}" alt="фото новости">
+        <a href="{% url 'detail' article.id %}"><h3>{{ article.name }}</h3></a>
+        <div>{{ article.content|truncatewords_html:16|safe}}</div>
+        <div>{{ article.data }}</div>
+        <span>{{ article.get_tags_display }}</span>
+        <hr>
+        </div>
+    {% endfor %}
+        <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo;В начало</a>
+            <a href="?page={{ page_obj.previous_page_number }}">назад</a>
+        {% endif %}
+
+        <span class="current">
+            Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">вперед</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">в конец &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
