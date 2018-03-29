@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Cities(models.Model):
-    country = models.ForeignKey('CountryCode', on_delete=models.CASCADE)
+    country_code = models.ForeignKey('CountryCode', on_delete=models.CASCADE)
     city = models.CharField("Название города", max_length=50)
     accent_city = models.CharField("Название города в этом городе", max_length=50)
     region = models.PositiveIntegerField("Регион", blank=True)
