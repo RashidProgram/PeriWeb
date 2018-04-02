@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Города</title>
+</head>
+<body>
+    {% for city in cities %}
+        {% if city.population %}
+            <h2>Город: {{ city.city }}</h2>
+            <h3><a href="{% url 'cities:detail' city.id%}">Подробнее</a></h3>
+            <hr />
+        {% endif %}
+    {% endfor %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo;В начало</a>
+                <a href="?page={{ page_obj.previous_page_number }}">назад</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">вперед</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">в конец &raquo;</a>
+            {% endif %}
+        </span>
+</div>
+</body>
+</html>

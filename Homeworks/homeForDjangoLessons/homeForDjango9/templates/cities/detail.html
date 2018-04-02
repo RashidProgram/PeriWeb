@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ city.city }}</title>
+</head>
+<body>
+    <h2>Город в мире:{{ city.city }}</h2>
+    <h2>Город в этой стране:{{ city.accent_city }}</h2>
+    <h3>Страна:{{ city.country }}</h3>
+    {% if not city.population %}
+        <h3>Популяция не извесна</h3>
+    {% else %}
+        <h3>Популяция:{{ city.population }}</h3>
+    {% endif %}
+    <h3>Регион:{{ city.region }}</h3>
+    <h4>Долгота:{{ city.latitude }}</h4>
+    <h4>Широта:{{ city.longitude }}</h4>
+    <h4><a href="{% url 'cities:list' %}">Назад к списку</a></h4>
+</body>
+</html>
