@@ -1,4 +1,4 @@
-"""django_10 URL Configuration
+"""django10 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -15,9 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import home
+from main.views import (
+    home,
+    new_home,
+    PeriCreateView,
+    PeriUpdateView,
+    PeriListView
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name="home")
+    path('', home, name='home'),
+    path('newHome/', new_home, name='newHome'),
+    path('create/', PeriCreateView.as_view(), name="create"),
+    path('update/<pk>', PeriUpdateView.as_view(), name="update"),
+    path('list/', PeriListView.as_view(), name="list"),
 ]

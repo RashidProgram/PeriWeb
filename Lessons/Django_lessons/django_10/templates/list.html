@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for test in test_list %}
+        <h1>{{ test.name }}</h1>
+        <a href="{% url 'update' test.id %}">Изменить</a>
+        <a href="{% url 'delete' test.id %}">Удалить</a>
+    {% endfor %}
+</body>
+</html>
