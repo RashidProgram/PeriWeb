@@ -21,4 +21,4 @@ class ZayavkaCreateView(CreateView):
     queryset = ZayavkaModel.objects.all()
 
     def get_success_url(self):
-        return reverse('odziv')
+        return reverse('home')
