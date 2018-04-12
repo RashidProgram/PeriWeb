@@ -1,24 +1,25 @@
-from django.shortcuts import render, reverse
-from .forms import ZayavkaForm, OdzivForm
 from django.views.generic import CreateView
-from .models import ZayavkaModel
+from django.contrib.auth.decorators import login_required
+from .forms import MyUserCreationForm
+from django.contrib.auth import logout
+from django.shortcuts import HttpResponseRedirect, render
 
 
-def otziv(request):
-    is_valid = False
-    form = OdzivForm(initial={'name': 'Ваше имя'})
-    if request.method == 'POST':
-        form = OdzivForm(request.POST)
-        if form.is_valid():
-            form.send_mail()
-            is_valid = True
-    return render(request, 'odziv.html', {'form': form, 'is_valid': is_valid})
+class UserCreateView(CreateView):
+    form_class = MyUserCreationForm
+    template_name = 'create.html'
+    success_url = '/'
 
 
-class ZayavkaCreateView(CreateView):
-    form_class = ZayavkaForm
-    template_name = 'zayavka.html'
-    queryset = ZayavkaModel.objects.all()
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
 
-    def get_success_url(self):
-        return reverse('home')
+
+def home(request):
+    return render(request, 'index.html', {})
+
+
+@login_required
+def secret(request):
+    return render(request, 'secret.html', {})

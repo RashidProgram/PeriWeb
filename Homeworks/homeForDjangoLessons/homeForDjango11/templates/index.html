@@ -5,8 +5,15 @@
     <title>Главная</title>
 </head>
 <body>
-<h1>Главная</h1>
-<div>Хотите оставить <a href="{% url 'odziv' %}">отзыв?</a></div>
-<div>Хотите оставить <a href="{% url 'zayavka' %}">заявку?</a></div>
+<header>
+    <div style="width: 100%; height: 50px;">
+        {%if not user.is_authenticated %}
+            <span><a href="{% url 'create_user' %}">Зарегестрироваться </a></span>
+            <span><a href="{% url 'login' %}">Войти</a></span>
+        {% else %}
+            <span><a href="{% url 'logout' %}">Выйти</a></span>
+        {% endif %}
+    </div>
+</header>
 </body>
 </html>
