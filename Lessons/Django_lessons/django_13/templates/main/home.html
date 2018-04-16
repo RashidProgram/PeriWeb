@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Главная
+{% endblock %}
+
+
+{% block content %}
+    <h2>Главная страничка привет {{ user.username }}</h2>
+    <h3>Твое полное имя: {{ user.get_full_name|default:'Аноним' }}</h3>
+{% endblock %}
