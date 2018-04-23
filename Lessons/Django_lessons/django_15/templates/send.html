@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<input type="text" class="js-user_data" placeholder="Введи что нибудь">
+<button type="button" data-url="{% url 'send' %}" class="js-send2">Отправить</button>
+<div id="js-div_for_text"></div>
+{% endblock %}
